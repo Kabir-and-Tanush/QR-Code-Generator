@@ -3,12 +3,15 @@
 
 import requests
 
-width = 1000
-height = 1000
+width = 300
+height = 300
 
-params={'cht': 'qr',
-        'chs': f'{width}x{height}',
-        'chl': ''}
+params={"cht": "qr",
+        "chs": f"{width}x{height}",
+        "chl": "https://github.com/KabrG",
+        "choe": "UTF-8"}
 r = requests.get(url='https://chart.googleapis.com/chart?', params=params)
+r.raise_for_status()
 
-print(r)
+with open("qr.png", "wb") as qr:
+    qr.write(r.content)
