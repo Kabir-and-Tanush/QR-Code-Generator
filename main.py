@@ -15,3 +15,4 @@ r.raise_for_status()
 
 with open("qr.png", "wb") as qr:
     qr.write(r.content)
+#hello
