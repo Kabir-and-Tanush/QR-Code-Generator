@@ -2,6 +2,7 @@
 # Ideally, another file can be associated with exporting the image but we can worry about it later
 
 import requests
+from PIL import Image
 
 width = 300
 height = 300
@@ -15,4 +16,6 @@ r.raise_for_status()
 
 with open("qr.png", "wb") as qr:
     qr.write(r.content)
-#hello
+
+img = Image.open('qr.png')
+img.show()
